@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import unittest
 import md4
@@ -11,7 +11,7 @@ class TestProvidedVectors(unittest.TestCase):
         m.update(msg.encode('us-ascii'))
         d = m.digest()
 
-        self.assertEquals(binascii.hexlify(d), '%032x' % digest)
+        self.assertEqual(binascii.hexlify(d).decode('us-ascii'), '%032x' % digest)
 
 if __name__ == '__main__':
     unittest.main()

@@ -91,7 +91,7 @@ class MD4:
     def update(self, str):
 
         buf = []
-        for i in str: buf.append(ord(i))
+        for i in str: buf.append(i)
         ilen = U32(len(buf))
 
         # check if the first length is out of range
@@ -244,7 +244,8 @@ def f3(a, b, c, d, k, s, X): return ROL(a + H(b, c, d) + X[k] + U32(0x6ed9eba1),
 #--------------------------------------------------------------------
 # helper function
 def int_array2str(array):
-        str = ''
+        return bytes(array)
+        str = b''
         for i in array:
             str = str + chr(i)
         return str
